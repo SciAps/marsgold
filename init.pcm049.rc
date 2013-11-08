@@ -2,6 +2,7 @@
 
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
+    chmod 0777 /dev/ion
 
 on init
     # See storage config details at http://source.android.com/tech/storage/
@@ -30,4 +31,8 @@ on post-fs-data
 service sdcard /system/bin/sdcard /data/sdcard /mnt/shell/emulated 1023 1023
     class late_start
 
-    
+service pvrsrvinit /system/bin/sh /vendor/bin/pvrstart.sh 
+    class core
+    user root
+    group root
+    oneshot
