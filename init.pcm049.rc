@@ -28,7 +28,7 @@ on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/sdcard 0770 media_rw media_rw
 
-service sdcard /system/bin/sdcard /data/sdcard /mnt/shell/emulated 1023 1023
+service sdcard /system/bin/sdcard /data/sdcard /mnt/shell/sdcard0 1023 1023
     class late_start
 
 service pvrsrvinit /system/bin/sh /vendor/bin/pvrstart.sh 
